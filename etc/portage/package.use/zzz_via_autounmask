@@ -1,0 +1,83 @@
+# required by dev-lang/spidermonkey-52.9.1_pre1::gentoo
+# required by sys-auth/polkit-0.115-r2::gentoo
+# required by gnome-extra/polkit-gnome-0.105-r1::gentoo
+>=dev-lang/python-2.7.15:2.7 sqlite
+# required by app-editors/neovim-0.3.3::gentoo
+# required by dev-python/neovim-python-client-0.3.1::gentoo
+>=dev-lua/lpeg-1.0.1 luajit
+# required by app-editors/neovim-0.3.3::gentoo
+# required by dev-python/neovim-python-client-0.3.1::gentoo
+>=dev-lua/mpack-1.0.4 luajit
+# required by x11-libs/libXext-1.3.3-r1::gentoo
+# required by x11-libs/libvdpau-1.1.1::gentoo[dri]
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=x11-libs/libX11-1.6.7 abi_x86_32
+# required by x11-libs/libvdpau-1.1.1::gentoo[dri]
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=x11-libs/libXext-1.3.3-r1 abi_x86_32
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=x11-libs/libvdpau-1.1.1 abi_x86_32
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=sys-libs/zlib-1.2.11-r2 abi_x86_32
+# required by x11-libs/libX11-1.6.7::gentoo
+# required by x11-libs/libXext-1.3.3-r1::gentoo
+# required by x11-libs/libvdpau-1.1.1::gentoo[dri]
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=x11-libs/libxcb-1.13.1 abi_x86_32
+# required by x11-libs/libxcb-1.13.1::gentoo
+# required by x11-libs/libX11-1.6.7::gentoo
+# required by x11-libs/libXext-1.3.3-r1::gentoo
+# required by x11-libs/libvdpau-1.1.1::gentoo[dri]
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=dev-libs/libpthread-stubs-0.4-r1 abi_x86_32
+# required by x11-libs/libxcb-1.13.1::gentoo
+# required by x11-libs/libX11-1.6.7::gentoo
+# required by x11-libs/libXext-1.3.3-r1::gentoo
+# required by x11-libs/libvdpau-1.1.1::gentoo[dri]
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=x11-libs/libXau-1.0.9 abi_x86_32
+# required by x11-libs/libxcb-1.13.1::gentoo
+# required by x11-libs/libX11-1.6.7::gentoo
+# required by x11-libs/libXext-1.3.3-r1::gentoo
+# required by x11-libs/libvdpau-1.1.1::gentoo[dri]
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=x11-libs/libXdmcp-1.1.2-r2 abi_x86_32
+# required by x11-libs/libxcb-1.13.1::gentoo
+# required by x11-libs/libX11-1.6.7::gentoo
+# required by x11-libs/libXext-1.3.3-r1::gentoo
+# required by x11-libs/libvdpau-1.1.1::gentoo[dri]
+# required by x11-drivers/nvidia-drivers-418.30::gentoo[X]
+# required by x11-base/xorg-drivers-1.20::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.20.3::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+>=x11-base/xcb-proto-1.13 abi_x86_32
+# required by sys-kernel/genkernel-3.5.3.3::gentoo
+# required by genkernel (argument)
+>=sys-apps/util-linux-2.33.1 static-libs
+# required by www-client/firefox-65.0.1::gentoo[system-libvpx]
+# required by firefox (argument)
+>=media-libs/libvpx-1.8.0-r1 postproc
