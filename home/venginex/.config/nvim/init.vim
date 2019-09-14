@@ -50,10 +50,6 @@ endif
   Plug 'neomake/neomake', { 'on': 'Neomake' }
   Plug 'nvie/vim-flake8'
   
-  function! DoRemote(arg)
-    UpdateRemotePlugins
-  endfunction
-
 ":  Development Languages
   Plug 'sheerun/vim-polyglot'
   Plug 'pangloss/vim-javascript'
