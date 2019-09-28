@@ -1,25 +1,23 @@
 " vengent.io: lightweight init.vim
-" URL: http://nvim.vengent.io
 " --------------------------------------
+" Required Dependencies:
+"   - pip install neovim
+"   - pip install pynvim
 
-" Auto-Install: Vim-Plug:
-"   - Upon first run or if 'plug.vim' is non-existent.
+" --- Vim-Plug (Self-installing upon non-detection.)  
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.github.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter + PlugInstall | source $MYVIMRC
 endif
 
+" --- Index of Plugins --- >
 call plug#begin('~/.config/nvim/plugged') 
-" Auto-Install: Plugins:
-"   - Upon finding missing plugins or first run.
 if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
  autocmd VimEnter * PlugInstall | q
 endif
 
-" Plugin List:
-" --------------------------------------
-":  Appearence
+" --- Appearence 
   Plug 'smallwat3r/vim-mono_sw'
   Plug 'LuRsT/austere.vim'
   Plug 'smallwat3r/vim-hashpunk-sw'
@@ -36,7 +34,8 @@ endif
   Plug 'andreypopp/vim-colors-plain'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-":  Functionality
+
+" --- Functionality
   Plug 'troydm/zoomwintab.vim'
   Plug 'kien/ctrlp.vim'
   Plug 'ludovicchabant/vim-gutentags'
@@ -45,34 +44,39 @@ endif
   Plug 'slashmili/alchemist.vim'
   Plug 'vim-syntastic/syntastic'
   Plug 'nvie/vim-flake8'
-  "> Code Folding
-  Plug 'tmhedberg/SimpylFold'
 
-  "> Completions
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+  " > Code Folding
+    Plug 'tmhedberg/SimpylFold'
 
-": Java 
-  Plug 'sbdchd/neoformat'
-  Plug 'artur-shaik/vim-javacomplete2'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'neomake/neomake'
+  " Completions
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
-": JavaScript 
-  Plug 'pangloss/vim-javascript'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-  let g:prettier#autoformat = 0
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-": Python
-  Plug 'vim-scripts/indentpython.vim'
+" --- Lang. & Development
+  " Java 
+    Plug 'sbdchd/neoformat'
+    Plug 'artur-shaik/vim-javacomplete2'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'neomake/neomake'
+  
+  " JavaScript 
+    Plug 'pangloss/vim-javascript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'maxmellon/vim-jsx-pretty'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+    
+    let g:prettier#autoformat = 0
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+  
+  " Markdown / Live Preview
+    Plug 'iamcco/mathjax-support-for-mkdp'
+    Plug 'iamcco/markdown-preview.vim'
+ 
+  " Python
+    Plug 'vim-scripts/indentpython.vim'
 
 call plug#end()
 
-" Settings
-" --------------------------------------
-":  Appearence 
+" --- Appearence 
 if has ('gui_running')
   set termguicolors
   set background=dark
@@ -82,17 +86,14 @@ else
   set termguicolors
   colorscheme plain
 endif
-  " App: Toggle Background (Light/Dark)
-  call togglebg#map("<F5>")
 
-
-": Code Folding
+" --- Code Folding
   nnoremap <space> za
   set foldmethod=indent
   set foldlevel=50
   let g:SimpylFold_docstring_preview=1
 
-": Deoplete 
+" --- Deoplete 
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#omni_patterns = {}
   let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
@@ -100,16 +101,16 @@ endif
   let g:deoplete#sources._ = []
   let g:deoplete#file#enable_buffer_path = 1
   ":> Java Completion
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
+    autocmd FileType java setlocal omnifunc=javacomplete#Complete
   ":> NeoMake
-  autocmd! BufWritePost,BufEnter * Neomake
+    autocmd! BufWritePost,BufEnter * Neomake
   ":> NeoFormat
-  augroup astyle
-    autocmd!
-    autocmd BufWritePre * Neoformat
-  augroup END
+    augroup astyle
+      autocmd!
+      autocmd BufWritePre * Neoformat
+    augroup END
 
-": Linting
+" --- Linting
   let g:ale_linters = {
   \   'python': ['flake8', 'pylint'],
   \   'javascript': ['eslint'],
@@ -125,12 +126,12 @@ endif
   let g:ale_fix_on_save = 1
   let g:jsx_ext_required = 1
 
-": Status Line
+" --- Status Line
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#formatter = 'unique_tail'
   let g:airline_theme = 'lucius'
 
-": Functionality
+" --- Functionality
   set number
   set hidden
   set mouse=a
@@ -138,12 +139,12 @@ endif
   set noshowmatch
   set nolazyredraw
 
-": Backup & Recovery
+" --- Backup & Recovery
   set nobackup
   set noswapfile
   set nowritebackup
 
-": Indentation & Formatting
+" --- Indentation & Formatting
   set shiftwidth=2
   set softtabstop=2
   set expandtab
@@ -165,23 +166,23 @@ endif
     \ set fileformat=unix
   let python_highlight_all=1
 
-": Plugins
+" --- Plugins
   nnoremap <Leader>o :CtrlP<CR>
   nnoremap <Leader>b :CtrlPBuffer<CR>
   nnoremap <Leader>f :CtrlPMRUFiles<CR>
   
-": Search
+" --- Search
   set ignorecase
   set smartcase
 
-" Object Loader
+" --- Object Loader
   function! ReadObject(file)
     if filereadable(expand(a:file))
       exe 'source' a:file
     endif
   endfunction
 
-" Load External Objects
+" --- Load External Objects
   call ReadObject('~/.config/nvim/object/archivedit.vim')
   call ReadObject('~/.config/nvim/object/instant_mltype.vim')
   call ReadObject('~/.config/nvim/object/netrw.vim')
